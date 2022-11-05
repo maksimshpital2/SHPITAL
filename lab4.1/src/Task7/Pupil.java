@@ -5,6 +5,3 @@ abstract class Pupil {
         pupil[1] = new Student();
     }
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
