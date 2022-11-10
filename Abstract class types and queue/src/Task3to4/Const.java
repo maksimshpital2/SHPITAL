@@ -1,4 +1,4 @@
-package Task3;
+package Task3to4;
 
 public class Const {
     private int constant;
