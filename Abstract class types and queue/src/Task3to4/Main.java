@@ -1,4 +1,4 @@
-package Task3;
+package Task3to4;
 
 abstract class Main {
     public static void main(String[] args) {
