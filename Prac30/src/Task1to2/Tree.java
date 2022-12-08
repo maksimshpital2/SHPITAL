@@ -76,7 +76,7 @@ public class Tree {
             }
         }
         if (root.getLeft() == null && root.getRight() == null) {
-            if (root == this.root) {
+            if (root.equals(this.root)) {
                 this.root = null;
             } else if (isleft) {
                 parent.setLeft(null);
@@ -84,7 +84,7 @@ public class Tree {
                 parent.setRight(null);
             }
         } else if (root.getRight() == null) {
-            if (root == this.root) {
+            if (root.equals(this.root)) {
                 this.root = root.getLeft();
             } else if (isleft) {
                 parent.setLeft(root.getLeft());
@@ -92,7 +92,7 @@ public class Tree {
                 parent.setRight(root.getLeft());
             }
         } else if (root.getLeft() == null) {
-            if (root == this.root) {
+            if (root.equals(this.root)) {
                 this.root = root.getRight();
             } else if (isleft) {
                 parent.setLeft(root.getRight());
@@ -101,7 +101,7 @@ public class Tree {
             }
         } else {
             Node heir = lookup(root);
-            if (root == this.root) {
+            if (root.equals(this.root)) {
                 this.root = heir;
             } else if (isleft) {
                 parent.setLeft(heir);
@@ -121,7 +121,7 @@ public class Tree {
             look = root;
             root = root.getLeft();
         }
-        if (look != node.getRight()) {
+        if (!look.equals(node.getRight())) {
             parent.setLeft(look.getRight());
             look.setRight(node.getRight());
         }
