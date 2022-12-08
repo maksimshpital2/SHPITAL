@@ -3,11 +3,11 @@ package Task1;
 public class Tree23 {
     Node root;
 
-    int height(Node N) {
-        if (N == null) {
+    int height(Node n) {
+        if (n == null) {
             return 0;
         }
-        return N.height;
+        return n.height;
     }
 
     int max(int a, int b) {
@@ -16,9 +16,9 @@ public class Tree23 {
 
     Node rightRotate(Node y) {
         Node x = y.left;
-        Node T2 = x.right;
+        Node buff = x.right;
         x.right = y;
-        y.left = T2;
+        y.left = buff;
         y.height = max(height(y.left), height(y.right)) + 1;
         x.height = max(height(x.left), height(x.right)) + 1;
         return x;
@@ -26,24 +26,24 @@ public class Tree23 {
 
     Node leftRotate(Node x) {
         Node y = x.right;
-        Node T2 = y.left;
+        Node buff = y.left;
         y.left = x;
-        x.right = T2;
+        x.right = buff;
         x.height = max(height(x.left), height(x.right)) + 1;
         y.height = max(height(y.left), height(y.right)) + 1;
         return y;
     }
 
-    int getBalance(Node N) {
-        if (N == null) {
+    int getBalance(Node n) {
+        if (n == null) {
             return 0;
         }
-        return height(N.left) - height(N.right);
+        return height(n.left) - height(n.right);
     }
 
     Node insert(Node node, int key) {
         if (node == null) {
-            return (new Node(key));
+            return new Node(key);
         }
 
         if (key < node.key) {
@@ -90,7 +90,7 @@ public class Tree23 {
         } else if (key > root.key) {
             root.right = deleteNode(root.right, key);
         } else {
-            if ((root.left == null) || (root.right == null)) {
+            if (root.left == null || root.right == null) {
                 Node temp;
                 if (null == root.left) {
                     temp = root.right;
